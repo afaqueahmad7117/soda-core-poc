@@ -1,7 +1,7 @@
 data_source spark_df:
   type: spark
 
-# data_source my_datasource_name:
+# data_source snowflake:
 #   type: snowflake
 #   host: localhost
 #   port: 5432
@@ -19,7 +19,7 @@ data_source spark_df:
 #     QUOTED_IDENTIFIERS_IGNORE_CASE: false
 #   schema: public
 
-# data_source my_datasource_name:
+# data_source databricks:
 #   type: spark
 #   method: databricks
 #   catalog: samples
