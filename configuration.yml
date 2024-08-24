@@ -1,2 +1,29 @@
 data_source spark_df:
   type: spark
+
+# data_source my_datasource_name:
+#   type: snowflake
+#   host: localhost
+#   port: 5432
+#   username: ${SNOWFLAKE_USER}
+#   password: ${SNOWFLAKE_PASSWORD}
+#   account: ${SNOWFLAKE_ACCOUNT}
+#   database: soda
+#   warehouse: soda_wh
+#   connection_timeout: 240
+#   role: PUBLIC
+#   client_session_keep_alive: true
+#   authenticator: externalbrowser
+#   session_params:
+#     QUERY_TAG: soda-queries
+#     QUOTED_IDENTIFIERS_IGNORE_CASE: false
+#   schema: public
+
+# data_source my_datasource_name:
+#   type: spark
+#   method: databricks
+#   catalog: samples
+#   schema: nyctaxi
+#   host: hostname_from_Databricks_SQL_settings
+#   http_path: http_path_from_Databricks_SQL_settings
+#   token: my_access_token
