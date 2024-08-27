@@ -1,0 +1,42 @@
+checks for ORDERS:
+  # Built-in metrics:
+  - row_count > 0
+  - freshness(O_ORDERDATE) < 1d
+  - missing_percent(O_ORDERSTATUS) < 5%
+  - missing_count(O_TOTALPRICE) < 5
+  - duplicate_count(O_ORDERKEY) = 0
+
+  - invalid_count(O_ORDERPRIORITY) = 0:
+      valid values:
+        - 1-URGENT
+        - 2-HIGH
+        - 3-MEDIUM
+        - 4-NOT SPECIFIED
+        - 5-LOW
+
+  # Referential integrity checks
+  - values in (O_CUSTKEY) must exist in CUSTOMER (C_CUSTKEY)
+
+  # Schema checks
+  - schema: 
+      fail:
+        when required column missing: 
+          - O_ORDERKEY
+          - O_CUSTKEY
+          - O_ORDERSTATUS
+          - O_TOTALPRICE
+          - O_ORDERDATE
+          - O_ORDERPRIORITY
+          - O_CLERK
+          - O_SHIPPRIORITY
+          - O_COMMENT
+      warn:
+        when forbidden column present: 
+          - O_CARDNUMBER
+
+  # Custom metric
+  - orders_not_between_1992_and_1998 = 0:
+      orders_not_between_1992_and_1998 query: |
+        SELECT COUNT(*) 
+        FROM ORDERS 
+        WHERE O_ORDERDATE NOT BETWEEN '1992-01-01' AND '1998-12-31'
