@@ -1,23 +1,14 @@
 data_source spark_df:
   type: spark
 
-# data_source snowflake:
-#   type: snowflake
-#   host: localhost
-#   port: 5432
-#   username: ${SNOWFLAKE_USER}
-#   password: ${SNOWFLAKE_PASSWORD}
-#   account: ${SNOWFLAKE_ACCOUNT}
-#   database: soda
-#   warehouse: soda_wh
-#   connection_timeout: 240
-#   role: PUBLIC
-#   client_session_keep_alive: true
-#   authenticator: externalbrowser
-#   session_params:
-#     QUERY_TAG: soda-queries
-#     QUOTED_IDENTIFIERS_IGNORE_CASE: false
-#   schema: public
+data_source snowflake:
+  type: snowflake
+  account: tu01276.ap-south-1.aws
+  username: "afaque205"
+  password: ${SNOWFLAKE_PASSWORD}
+  warehouse: COMPUTE_WH
+  database: SNOWFLAKE_SAMPLE_DATA
+  schema: TPCH_SF10
 
 # data_source databricks:
 #   type: spark

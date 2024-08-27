@@ -1,0 +1,4 @@
+checks for CUSTOMER:
+# Built-in metrics:
+  - row_count > 10000
+  - duplicate_count(C_ADDRESS) = 0
