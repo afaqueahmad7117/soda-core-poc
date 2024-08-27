@@ -6,14 +6,14 @@ checks for orders_vw:
   - missing_count(order_id) = 0
   - missing_count(order_date) = 0
 
-# Custom metric
+  # Custom metric
   - count_order_date_after_ship_date = 0:
       count_order_date_after_ship_date query: |
         SELECT COUNT(*) 
         FROM orders_vw 
         WHERE order_date > ship_date
 
-# Schema validation
+  # Schema validation
   - schema:
       fail:
         when required column missing:
